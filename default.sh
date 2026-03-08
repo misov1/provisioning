@@ -76,13 +76,11 @@ UNET_MODELS=(
 #    "https://civitai.com/api/download/models/2513182?type=Model&format=SafeTensor&size=pruned&fp=fp8" #smooth v2.0 High
 #    "https://civitai.com/api/download/models/2513186?type=Model&format=SafeTensor&size=pruned&fp=fp8" #smooth v2.0 Low
 
-# LLM models
-    "https://huggingface.co/llmfan46/Qwen3.5-35B-A3B-heretic-v2-GGUF/resolve/main/Qwen3.5-35B-A3B-heretic-v2-Q6_K.gguf" # Qwen3.5-35B-A3B-heretic-v2
 )
 
 TEXT_ENCODERS=(
-    "https://huggingface.co/chatpig/encoder/resolve/main/umt5_xxl_fp8_e4m3fn_scaled.safetensors" # Wan 2.2 text encoder
-    "https://huggingface.co/circlestone-labs/Anima/blob/main/split_files/text_encoders/qwen_3_06b_base.safetensors" # Anime text encoder by qwen
+    "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors" # Wan 2.2 text encoder
+    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors" # Anime text encoder by qwen
 )
 
 CLIP_VISION=(
@@ -108,24 +106,30 @@ LORA_MODELS=(
 # Anime Lora
     "https://civitai.com/api/download/models/2680198?type=Model&format=SafeTensor" # Kieed style
     "https://civitai.com/api/download/models/2663471?type=Model&format=SafeTensor" # Ai style dump
-    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
-    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_low_noise_lora_v2.0_pro.safetensors"
 
 # Wan2.2 Lora
-#    "https://civitai.com/api/download/models/2209354?type=Model&format=SafeTensor" # wan2.2 high bounce lora
-#    "https://civitai.com/api/download/models/2209344?type=Model&format=SafeTensor" # wan2.2 low bounce lora
+    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
+    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_low_noise_lora_v2.0_pro.safetensors"
 )
 
 VAE_MODELS=(
-    "https://huggingface.co/calcuis/wan-gguf/resolve/2f41e77bfc957eab2020821463d0cd7b15804bb9/wan_2.1_vae.safetensors" # wan vae
+    "https://huggingface.co/DeepBeepMeep/Wan2.1/resolve/4da0bbfdad01e159633083e98be7f93d8b8c9562/Wan2.1_VAE_bf16.safetensors" # wan vae
     "https://huggingface.co/misov/vast_used/resolve/main/MS_DPipe_fp32_112k_Anime_VAE_SDXL.safetensors" # SDLX vae from Anzhc DPip
-    "https://huggingface.co/circlestone-labs/Anima/blob/main/split_files/vae/qwen_image_vae.safetensors" # Anime vae by qwen
+    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors" # Anime vae by qwen
 )
 
 UPSCALE_MODELS=(
     "https://huggingface.co/Kim2091/2x-AnimeSharpV4/resolve/1a9339b5c308ab3990f6233be2c1169a75772878/2x-AnimeSharpV4_RCAN.safetensors"
     "https://huggingface.co/Kim2091/UltraSharpV2/resolve/main/4x-UltraSharpV2.safetensors"
 )
+
+# [DISABLED] ollama가 qwen35 아키텍처를 지원하면 주석 해제
+# LLM_MODELS=(
+#     "https://huggingface.co/llmfan46/Qwen3.5-27B-heretic-v2-GGUF/resolve/main/Qwen3.5-27B-heretic-v2-Q6_K.gguf" # Qwen3.5-27B heretic v2 Q6_K
+#     "https://huggingface.co/llmfan46/Qwen3.5-27B-heretic-v2-GGUF/resolve/main/Qwen3.5-27B-mmproj-BF16.gguf" # Qwen3.5-27B vision projector (mmproj)
+# )
+
+OLLAMA_MODEL="huihui_ai/qwen3-vl-abliterated:8b-instruct"
 
 CONTROLNET_MODELS=(
 )
@@ -139,6 +143,7 @@ function provisioning_start() {
     provisioning_print_header
     provisioning_get_apt_packages
     provisioning_get_nodes
+    provisioning_install_sageattention
     provisioning_get_pip_packages
     provisioning_get_files \
         "${COMFYUI_DIR}/models/checkpoints" \
@@ -173,6 +178,11 @@ function provisioning_start() {
     provisioning_get_files \
         "${COMFYUI_DIR}/models/ultralytics/bbox" \
         "${BBOX[@]}"
+    # [DISABLED] ollama가 qwen35 아키텍처를 지원하면 주석 해제
+    # provisioning_get_files \
+    #     "${COMFYUI_DIR}/models/LLM" \
+    #     "${LLM_MODELS[@]}"
+    provisioning_setup_ollama
     provisioning_print_end
 }
 
@@ -185,6 +195,19 @@ function provisioning_get_apt_packages() {
 function provisioning_get_pip_packages() {
     if [[ -n $PIP_PACKAGES ]]; then
             pip install --no-cache-dir ${PIP_PACKAGES[@]}
+    fi
+}
+
+function provisioning_install_sageattention() {
+    # RTX 5090 등 Blackwell GPU에서 SageAttention FP8 지원을 위해 최신 버전 소스 빌드
+    printf "Checking SageAttention installation...\n"
+    if python -c "from sageattention import sageattn_qk_int8_pv_fp8_cuda" 2>/dev/null; then
+        printf "SageAttention FP8 already available, skipping...\n"
+    else
+        printf "Installing SageAttention from source (--no-build-isolation for torch access)...\n"
+        pip uninstall sageattention -y 2>/dev/null || true
+        pip install --no-cache-dir --no-build-isolation git+https://github.com/thu-ml/SageAttention.git
+        printf "SageAttention installation complete.\n"
     fi
 }
 
@@ -224,6 +247,68 @@ function provisioning_get_files() {
         provisioning_download "${url}" "${dir}"
         printf "\n"
     done
+}
+
+function provisioning_setup_ollama() {
+    printf "Setting up Ollama...\n"
+
+    # ollama 설치 (이미 설치되어 있으면 스킵)
+    if ! command -v ollama &> /dev/null; then
+        printf "Installing Ollama...\n"
+        curl -fsSL https://ollama.com/install.sh | sh
+    else
+        printf "Ollama already installed, skipping...\n"
+    fi
+
+    # ollama 서버 시작
+    if ! pgrep -x "ollama" > /dev/null; then
+        ollama serve &
+        sleep 3
+    fi
+
+    # ollama pull로 모델 다운로드
+    if ! ollama list 2>/dev/null | grep -q "${OLLAMA_MODEL%%:*}"; then
+        printf "Pulling Ollama model: %s\n" "${OLLAMA_MODEL}"
+        ollama pull "${OLLAMA_MODEL}"
+        printf "Ollama model pulled successfully.\n"
+    else
+        printf "Ollama model '%s' already exists, skipping...\n" "${OLLAMA_MODEL}"
+    fi
+
+    # [DISABLED] ollama가 qwen35 아키텍처를 지원하면 아래 주석 해제하고 위 ollama pull 블록 주석처리
+    # local gguf_path="${COMFYUI_DIR}/models/LLM/Qwen3.5-27B-heretic-v2-Q6_K.gguf"
+    # local mmproj_path="${COMFYUI_DIR}/models/LLM/Qwen3.5-27B-mmproj-BF16.gguf"
+    # if [[ -f "$gguf_path" ]]; then
+    #     if ! ollama list 2>/dev/null | grep -q "heretic"; then
+    #         printf "Registering GGUF model to Ollama...\n"
+    #         local modelfile_content="FROM ${gguf_path}\nPARAMETER temperature 0.7\nPARAMETER num_ctx 8192"
+    #         if [[ -f "$mmproj_path" ]]; then
+    #             modelfile_content="FROM ${gguf_path}\nADAPTER ${mmproj_path}\nPARAMETER temperature 0.7\nPARAMETER num_ctx 8192"
+    #             printf "mmproj found - vision/image recognition enabled!\n"
+    #         fi
+    #         echo -e "$modelfile_content" > /tmp/Modelfile
+    #         ollama create heretic -f /tmp/Modelfile
+    #         rm -f /tmp/Modelfile
+    #         printf "Ollama model 'heretic' registered.\n"
+    #         local blob_size=$(du -sb /root/.ollama/models/blobs/ 2>/dev/null | tail -1 | awk '{print $1}')
+    #         local gguf_size=$(stat -c%s "$gguf_path" 2>/dev/null || echo 0)
+    #         if [[ $blob_size -ge $gguf_size ]] && [[ $blob_size -gt 0 ]]; then
+    #             printf "Blob copy confirmed (%s bytes). Removing original GGUF files...\n" "$blob_size"
+    #             rm -f "$gguf_path"
+    #             rm -f "$mmproj_path"
+    #         else
+    #             printf "WARNING: Blob size mismatch. Keeping original GGUF files.\n"
+    #         fi
+    #     else
+    #         printf "Ollama model 'heretic' already exists, skipping...\n"
+    #     fi
+    # else
+    #     if ollama list 2>/dev/null | grep -q "heretic"; then
+    #         printf "Ollama model 'heretic' already registered, GGUF already cleaned up.\n"
+    #     else
+    #         printf "Warning: GGUF file not found at %s, skipping Ollama model registration.\n" "$gguf_path"
+    #     fi
+    # fi
 }
 
 function provisioning_print_header() {
