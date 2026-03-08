@@ -64,10 +64,12 @@ CHECKPOINT_MODELS=(
 #    "https://huggingface.co/IbarakiDouji/WAI-NSFW-illustrious-SDXL/resolve/main/waiIllustriousSDXL_v160.safetensors" # WAI-NSFW-ilXL v16
 #    "https://civitai.com/api/download/models/2620839?type=Model&format=SafeTensor&size=full&fp=bf16" # dXjmX-illus x8
     "https://huggingface.co/baqu2213/PoemForSmallFThings/resolve/main/NAI-XL_vpred1.0_2dac_colorized_style2.safetensors" # NoobAI-XL custom merge model+ color 2D Str
-    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview.safetensors" # Anime Previeew"
 )
 
 UNET_MODELS=(
+# Anima
+    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview.safetensors" # Anima Previeew"
+
 # wan 2.2 models
     "https://civitai.com/api/download/models/2555640?type=Model&format=SafeTensor&size=full&fp=fp8" #dasiwa v9 High
     "https://civitai.com/api/download/models/2555652?type=Model&format=SafeTensor&size=full&fp=fp8" #dasiwa v9 Low
