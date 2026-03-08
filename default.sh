@@ -67,7 +67,7 @@ CHECKPOINT_MODELS=(
 )
 
 UNET_MODELS=(
-# Anima
+# Anima model
     "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview.safetensors" # Anima Previeew"
 
 # wan 2.2 models
@@ -268,16 +268,30 @@ function provisioning_has_valid_civitai_token() {
 
 # Download from $1 URL to $2 file path
 function provisioning_download() {
-    if [[ -n $HF_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.com(/|$|\?) ]]; then
+    local auth_token=""
+    local url="$1"
+
+    if [[ -n $HF_TOKEN && $url =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.co(/|$|\?) ]]; then
         auth_token="$HF_TOKEN"
-    elif 
-        [[ -n $CIVITAI_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?civitai\.com(/|$|\?) ]]; then
+    elif [[ -n $CIVITAI_TOKEN && $url =~ ^https://([a-zA-Z0-9_-]+\.)?civitai\.com(/|$|\?) ]]; then
         auth_token="$CIVITAI_TOKEN"
     fi
-    if [[ -n $auth_token ]];then
-        wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+
+    if [[ -n $auth_token ]]; then
+        # CivitAI: 리다이렉트 시 헤더가 유실되므로 URL 쿼리 파라미터로 토큰 전달
+        if [[ $url =~ civitai\.com ]]; then
+            if [[ $url =~ \? ]]; then
+                url="${url}&token=${auth_token}"
+            else
+                url="${url}?token=${auth_token}"
+            fi
+            wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$url"
+        else
+            # HuggingFace: Bearer 헤더 방식
+            wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$url"
+        fi
     else
-        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$url"
     fi
 }
 
