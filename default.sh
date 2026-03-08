@@ -260,13 +260,14 @@ function provisioning_setup_ollama() {
         printf "Ollama already installed, skipping...\n"
     fi
 
-    # ollama 서버 시작
+    # 프로비저닝 중 임시로 ollama 서버 시작 (CPU only, ComfyUI GPU 충돌 방지)
     if ! pgrep -x "ollama" > /dev/null; then
-        ollama serve &
+        CUDA_VISIBLE_DEVICES="" ollama serve &
+        local ollama_pid=$!
         sleep 3
     fi
 
-    # ollama pull로 모델 다운로드
+    # ollama pull로 모델 다운로드 (CPU 모드라 pull만 수행, 실행은 안 함)
     if ! ollama list 2>/dev/null | grep -q "${OLLAMA_MODEL%%:*}"; then
         printf "Pulling Ollama model: %s\n" "${OLLAMA_MODEL}"
         ollama pull "${OLLAMA_MODEL}"
@@ -274,6 +275,13 @@ function provisioning_setup_ollama() {
     else
         printf "Ollama model '%s' already exists, skipping...\n" "${OLLAMA_MODEL}"
     fi
+
+    # 임시 서버 종료 후 GPU 모드로 재시작
+    pkill -x ollama 2>/dev/null
+    sleep 2
+    ollama serve &
+    sleep 3
+    printf "Ollama restarted with GPU mode\n"
 
     # [DISABLED] ollama가 qwen35 아키텍처를 지원하면 아래 주석 해제하고 위 ollama pull 블록 주석처리
     # local gguf_path="${COMFYUI_DIR}/models/LLM/Qwen3.5-27B-heretic-v2-Q6_K.gguf"
