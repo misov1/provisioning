@@ -64,27 +64,28 @@ CHECKPOINT_MODELS=(
 #    "https://huggingface.co/IbarakiDouji/WAI-NSFW-illustrious-SDXL/resolve/main/waiIllustriousSDXL_v160.safetensors" # WAI-NSFW-ilXL v16
 #    "https://civitai.com/api/download/models/2620839?type=Model&format=SafeTensor&size=full&fp=bf16" # dXjmX-illus x8
     "https://huggingface.co/baqu2213/PoemForSmallFThings/resolve/main/NAI-XL_vpred1.0_2dac_colorized_style2.safetensors" # NoobAI-XL custom merge model+ color 2D Str
+
+# Anima model
+#    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview.safetensors" # Anima Previeew"
+    "https://civitai.com/api/download/models/2753918?type=Model&format=SafeTensor&size=full&fp=bf16" # AnimaYume
 )
 
 UNET_MODELS=(
-# Anima model
-    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview.safetensors" # Anima Previeew"
-
 # wan 2.2 models
-    "https://civitai.com/api/download/models/2555640?type=Model&format=SafeTensor&size=full&fp=fp8" #dasiwa v9 High
-    "https://civitai.com/api/download/models/2555652?type=Model&format=SafeTensor&size=full&fp=fp8" #dasiwa v9 Low
+#    "https://civitai.com/api/download/models/2555640?type=Model&format=SafeTensor&size=full&fp=fp8" #dasiwa v9 High
+#    "https://civitai.com/api/download/models/2555652?type=Model&format=SafeTensor&size=full&fp=fp8" #dasiwa v9 Low
 #    "https://civitai.com/api/download/models/2513182?type=Model&format=SafeTensor&size=pruned&fp=fp8" #smooth v2.0 High
 #    "https://civitai.com/api/download/models/2513186?type=Model&format=SafeTensor&size=pruned&fp=fp8" #smooth v2.0 Low
 
 )
 
 TEXT_ENCODERS=(
-    "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors" # Wan 2.2 text encoder
+#    "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors" # Wan 2.2 text encoder
     "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors" # Anime text encoder by qwen
 )
 
 CLIP_VISION=(
-    "https://huggingface.co/calcuis/wan-gguf/resolve/f52f5a1f0ba441d50277fb7cdd7c1b36611837f9/clip_vision_h.safetensors"
+#    "https://huggingface.co/calcuis/wan-gguf/resolve/f52f5a1f0ba441d50277fb7cdd7c1b36611837f9/clip_vision_h.safetensors"
 )
 
 SAMS=(
@@ -108,13 +109,13 @@ LORA_MODELS=(
     "https://civitai.com/api/download/models/2663471?type=Model&format=SafeTensor" # Ai style dump
 
 # Wan2.2 Lora
-    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
-    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_low_noise_lora_v2.0_pro.safetensors"
+#    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
+#    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_low_noise_lora_v2.0_pro.safetensors"
 )
 
 VAE_MODELS=(
-    "https://huggingface.co/DeepBeepMeep/Wan2.1/resolve/4da0bbfdad01e159633083e98be7f93d8b8c9562/Wan2.1_VAE_bf16.safetensors" # wan vae
-    "https://huggingface.co/misov/vast_used/resolve/main/MS_DPipe_fp32_112k_Anime_VAE_SDXL.safetensors" # SDLX vae from Anzhc DPip
+#    "https://huggingface.co/DeepBeepMeep/Wan2.1/resolve/4da0bbfdad01e159633083e98be7f93d8b8c9562/Wan2.1_VAE_bf16.safetensors" # wan vae
+    "https://huggingface.co/misov/vast_used/resolve/main/MS_DPipe_fp32_112k_Anime_VAE_SDXL.safetensors" # SDXL vae from Anzhc DPip
     "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors" # Anime vae by qwen
 )
 
@@ -129,7 +130,7 @@ UPSCALE_MODELS=(
 #     "https://huggingface.co/llmfan46/Qwen3.5-27B-heretic-v2-GGUF/resolve/main/Qwen3.5-27B-mmproj-BF16.gguf" # Qwen3.5-27B vision projector (mmproj)
 # )
 
-OLLAMA_MODEL="huihui_ai/qwen3-vl-abliterated:8b-instruct"
+#OLLAMA_MODEL="huihui_ai/qwen3-vl-abliterated:8b-instruct"
 
 CONTROLNET_MODELS=(
 )
@@ -182,8 +183,8 @@ function provisioning_start() {
     # provisioning_get_files \
     #     "${COMFYUI_DIR}/models/LLM" \
     #     "${LLM_MODELS[@]}"
-    provisioning_setup_ollama
-    provisioning_print_end
+#    provisioning_setup_ollama
+#    provisioning_print_end
 }
 
 function provisioning_get_apt_packages() {
@@ -249,39 +250,39 @@ function provisioning_get_files() {
     done
 }
 
-function provisioning_setup_ollama() {
-    printf "Setting up Ollama...\n"
+#function provisioning_setup_ollama() {
+#    printf "Setting up Ollama...\n"
 
     # ollama 설치 (이미 설치되어 있으면 스킵)
-    if ! command -v ollama &> /dev/null; then
-        printf "Installing Ollama...\n"
-        curl -fsSL https://ollama.com/install.sh | sh
-    else
-        printf "Ollama already installed, skipping...\n"
-    fi
+#    if ! command -v ollama &> /dev/null; then
+#        printf "Installing Ollama...\n"
+#        curl -fsSL https://ollama.com/install.sh | sh
+#    else
+#        printf "Ollama already installed, skipping...\n"
+#    fi
 
     # 프로비저닝 중 임시로 ollama 서버 시작 (CPU only, ComfyUI GPU 충돌 방지)
-    if ! pgrep -x "ollama" > /dev/null; then
-        CUDA_VISIBLE_DEVICES="" ollama serve &
-        local ollama_pid=$!
-        sleep 3
-    fi
+#    if ! pgrep -x "ollama" > /dev/null; then
+#        CUDA_VISIBLE_DEVICES="" ollama serve &
+#        local ollama_pid=$!
+#        sleep 3
+#    fi
 
     # ollama pull로 모델 다운로드 (CPU 모드라 pull만 수행, 실행은 안 함)
-    if ! ollama list 2>/dev/null | grep -q "${OLLAMA_MODEL%%:*}"; then
-        printf "Pulling Ollama model: %s\n" "${OLLAMA_MODEL}"
-        ollama pull "${OLLAMA_MODEL}"
-        printf "Ollama model pulled successfully.\n"
-    else
-        printf "Ollama model '%s' already exists, skipping...\n" "${OLLAMA_MODEL}"
-    fi
+#    if ! ollama list 2>/dev/null | grep -q "${OLLAMA_MODEL%%:*}"; then
+#        printf "Pulling Ollama model: %s\n" "${OLLAMA_MODEL}"
+#        ollama pull "${OLLAMA_MODEL}"
+#        printf "Ollama model pulled successfully.\n"
+#    else
+#        printf "Ollama model '%s' already exists, skipping...\n" "${OLLAMA_MODEL}"
+#    fi
 
     # 임시 서버 종료 후 GPU 모드로 재시작
-    pkill -x ollama 2>/dev/null
-    sleep 2
-    ollama serve &
-    sleep 3
-    printf "Ollama restarted with GPU mode\n"
+#    pkill -x ollama 2>/dev/null
+#    sleep 2
+#    ollama serve &
+#    sleep 3
+#    printf "Ollama restarted with GPU mode\n"
 
     # [DISABLED] ollama가 qwen35 아키텍처를 지원하면 아래 주석 해제하고 위 ollama pull 블록 주석처리
     # local gguf_path="${COMFYUI_DIR}/models/LLM/Qwen3.5-27B-heretic-v2-Q6_K.gguf"
