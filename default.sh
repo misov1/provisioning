@@ -34,6 +34,10 @@ NODES=(
     "https://github.com/newtextdoc1111/ComfyUI-Autocomplete-Plus"
     "https://github.com/ltdrdata/was-node-suite-comfyui"
     "https://github.com/bedovyy/ComfyUI_NAIDGenerator"
+    "https://github.com/yolain/ComfyUI-Easy-Use"
+    "https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet"
+    "https://github.com/stavsap/comfyui-ollama"
+    "https://github.com/jtydhr88/ComfyUI-Workflow-Encrypt"
     "https://github.com/NyaamZ/efficiency-nodes-ED"
     # Smooth Mix Wan 2.2 node
 #    "https://github.com/melMass/comfy_mtb"
@@ -106,6 +110,7 @@ LORA_MODELS=(
 
 # Anime Lora
     "https://huggingface.co/misov/provisioning/resolve/main/mixed_styles_anima_preview2_v3.safetensors" # Ai style dump
+    "https://huggingface.co/misov/provisioning/resolve/main/anima_preview2_nineng8_1536_512_2026_03_14-000001.safetensors"
 
 # Wan2.2 Lora
 #    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
