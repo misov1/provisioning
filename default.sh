@@ -36,23 +36,23 @@ NODES=(
     "https://github.com/bedovyy/ComfyUI_NAIDGenerator"
     "https://github.com/NyaamZ/efficiency-nodes-ED"
     # Smooth Mix Wan 2.2 node
-    "https://github.com/melMass/comfy_mtb"
-    "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
-    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
-    "https://github.com/city96/ComfyUI-GGUF"
-    "https://github.com/kijai/ComfyUI-Florence2"
-    "https://github.com/yolain/ComfyUI-Easy-Use"
-    "https://github.com/Smirnov75/ComfyUI-mxToolkit"
-    "https://github.com/KLL535/ComfyUI_PNGInfo_Sidebar"
-    "https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet"
-    "https://github.com/chrisgoringe/cg-use-everywhere"
-    "https://github.com/stavsap/comfyui-ollama"
-    "https://github.com/pollockjj/ComfyUI-MultiGPU"
-    "https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes"
-    "https://github.com/jamesWalker55/comfyui-various"
-    "https://github.com/orssorbit/ComfyUI-wanBlockswap"
-    "https://github.com/royceschultz/ComfyUI-Notifications"
-    "https://github.com/chflame163/ComfyUI_LayerStyle"
+#    "https://github.com/melMass/comfy_mtb"
+#    "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
+#    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+#    "https://github.com/city96/ComfyUI-GGUF"
+#    "https://github.com/kijai/ComfyUI-Florence2"
+#    "https://github.com/yolain/ComfyUI-Easy-Use"
+#    "https://github.com/Smirnov75/ComfyUI-mxToolkit"
+#    "https://github.com/KLL535/ComfyUI_PNGInfo_Sidebar"
+#    "https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet"
+#    "https://github.com/chrisgoringe/cg-use-everywhere"
+#    "https://github.com/stavsap/comfyui-ollama"
+#    "https://github.com/pollockjj/ComfyUI-MultiGPU"
+#    "https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes"
+#    "https://github.com/jamesWalker55/comfyui-various"
+#    "https://github.com/orssorbit/ComfyUI-wanBlockswap"
+#    "https://github.com/royceschultz/ComfyUI-Notifications"
+#    "https://github.com/chflame163/ComfyUI_LayerStyle"
 )
 
 WORKFLOWS=(
@@ -66,8 +66,8 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/baqu2213/PoemForSmallFThings/resolve/main/NAI-XL_vpred1.0_2dac_colorized_style2.safetensors" # NoobAI-XL custom merge model+ color 2D Str
 
 # Anima model
-#    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview.safetensors" # Anima Previeew"
-    "https://civitai.com/api/download/models/2753918?type=Model&format=SafeTensor&size=full&fp=bf16" # AnimaYume
+#    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview.safetensors" # Anima Preview
+    "https://huggingface.co/misov/provisioning/resolve/main/animayume_v025.safetensors" # AnimaYume v025 from Anima preview2
 )
 
 UNET_MODELS=(
@@ -98,15 +98,14 @@ BBOX=(
 
 LORA_MODELS=(
 # SDXL Lora
-    "https://civitai.com/api/download/models/2032913?type=Model&format=SafeTensor" # ebora style lora
-    "https://civitai.com/api/download/models/2078007?type=Model&format=SafeTensor" # qiandaiyiyu style lora
-    "https://civitai.com/api/download/models/2132494?type=Model&format=SafeTensor" # BlueArchive Cutscene style
-    "https://civitai.com/api/download/models/2116446?type=Model&format=SafeTensor" # 3D Virtual Anime style
-    "https://civitai.com/api/download/models/1555533?type=Model&format=SafeTensor" # Nyalia style lora based noobAI
+    "https://huggingface.co/misov/provisioning/resolve/main/Ebora_Style_Lora_Epoch10.safetensors" # ebora style lora
+    "https://huggingface.co/misov/provisioning/resolve/main/qiandaiyiyu_style.safetensors" # qiandaiyiyu style lora
+    "https://huggingface.co/misov/provisioning/resolve/main/BlueArchive-000008.safetensors" # BlueArchive Cutscene style
+    "https://huggingface.co/misov/provisioning/resolve/main/anime3dv2-000009.safetensors" # 3D Virtual Anime style
+    "https://huggingface.co/misov/provisioning/resolve/main/nyaliaXL_NBVP1_lokr_V6311PZ.safetensors" # Nyalia style lora based noobAI
 
 # Anime Lora
-    "https://civitai.com/api/download/models/2680198?type=Model&format=SafeTensor" # Kieed style
-    "https://civitai.com/api/download/models/2663471?type=Model&format=SafeTensor" # Ai style dump
+    "https://huggingface.co/misov/provisioning/resolve/main/mixed_styles_anima_preview2_v3.safetensors" # Ai style dump
 
 # Wan2.2 Lora
 #    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
