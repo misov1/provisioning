@@ -183,7 +183,7 @@ function provisioning_start() {
     #     "${COMFYUI_DIR}/models/LLM" \
     #     "${LLM_MODELS[@]}"
 #    provisioning_setup_ollama
-#    provisioning_print_end
+    provisioning_print_end
 }
 
 function provisioning_get_apt_packages() {
@@ -317,7 +317,7 @@ function provisioning_get_files() {
     #         printf "Warning: GGUF file not found at %s, skipping Ollama model registration.\n" "$gguf_path"
     #     fi
     # fi
-}
+    #}
 
 function provisioning_print_header() {
     printf "\n##############################################\n#                                            #\n#          Provisioning container            #\n#                                            #\n#         This will take some time           #\n#                                            #\n# Your container will be ready on completion #\n#                                            #\n##############################################\n\n"
