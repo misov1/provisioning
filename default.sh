@@ -30,7 +30,7 @@ NODES=(
     "https://github.com/rgthree/rgthree-comfy"
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/misov1/ComfyUI-image-size-templet"
-    "https://github.com/PozzettiAndrea/ComfyUI-SAM3"
+    "https://github.com/1038lab/ComfyUI-RMBG"
     "https://github.com/newtextdoc1111/ComfyUI-Autocomplete-Plus"
     "https://github.com/ltdrdata/was-node-suite-comfyui"
     "https://github.com/bedovyy/ComfyUI_NAIDGenerator"
