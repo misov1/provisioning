@@ -71,7 +71,7 @@ CHECKPOINT_MODELS=(
 
 # Anima model
 #    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview.safetensors" # Anima Preview
-    "https://huggingface.co/misov/provisioning/resolve/main/animayume_v025.safetensors" # AnimaYume v025 from Anima preview2
+    "https://huggingface.co/misov/provisioning/resolve/main/animayume_v03.safetensors" # AnimaYume
 )
 
 UNET_MODELS=(
@@ -111,6 +111,7 @@ LORA_MODELS=(
 # Anime Lora
     "https://huggingface.co/misov/provisioning/resolve/main/mixed_styles_anima_preview2_v3.safetensors" # Ai style dump
     "https://huggingface.co/misov/provisioning/resolve/main/anima_preview2_nineng8_1536_512_2026_03_14-000001.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/QUANTUMAIQUARTET_Anima-preview_adapter_model_epoch12.safetensors"
 
 # Wan2.2 Lora
 #    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
