@@ -153,8 +153,7 @@ function provisioning_start() {
     provisioning_print_header
     provisioning_get_apt_packages
     provisioning_get_nodes
-    provisioning_install_sageattention
-    provisioning_get_pip_packages
+        provisioning_get_pip_packages
     provisioning_get_files \
         "${COMFYUI_DIR}/models/checkpoints" \
         "${CHECKPOINT_MODELS[@]}"
@@ -193,6 +192,7 @@ function provisioning_start() {
     #     "${COMFYUI_DIR}/models/LLM" \
     #     "${LLM_MODELS[@]}"
 #    provisioning_setup_ollama
+    provisioning_install_sageattention
     provisioning_print_end
 }
 
