@@ -70,8 +70,8 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/baqu2213/PoemForSmallFThings/resolve/main/NAI-XL_vpred1.0_2dac_colorized_style2.safetensors" # NoobAI-XL custom merge model+ color 2D Str
 
 # Anima model
-#    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview.safetensors" # Anima Preview
-    "https://huggingface.co/misov/provisioning/resolve/main/animayume_v03.safetensors" # AnimaYume
+    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview3-base.safetensors" # Anima Preview
+#    "https://huggingface.co/misov/provisioning/resolve/main/animayume_v03.safetensors" # AnimaYume
 )
 
 UNET_MODELS=(
@@ -85,7 +85,7 @@ UNET_MODELS=(
 
 TEXT_ENCODERS=(
 #    "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors" # Wan 2.2 text encoder
-    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors" # Anime text encoder by qwen
+    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors" # Anima text encoder by qwen
 )
 
 CLIP_VISION=(
@@ -112,6 +112,9 @@ LORA_MODELS=(
     "https://huggingface.co/misov/provisioning/resolve/main/mixed_styles_anima_preview2_v3.safetensors" # Ai style dump
     "https://huggingface.co/misov/provisioning/resolve/main/anima_preview2_nineng8_1536_512_2026_03_14-000001.safetensors"
     "https://huggingface.co/misov/provisioning/resolve/main/QUANTUMAIQUARTET_Anima-preview_adapter_model_epoch12.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/anima-highres-aesthetic-boost.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/toridamonostyle.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/BlueArcStyle.safetensors"
 
 # Wan2.2 Lora
 #    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
@@ -122,11 +125,12 @@ VAE_MODELS=(
 #    "https://huggingface.co/DeepBeepMeep/Wan2.1/resolve/4da0bbfdad01e159633083e98be7f93d8b8c9562/Wan2.1_VAE_bf16.safetensors" # wan vae
     "https://huggingface.co/misov/vast_used/resolve/main/MS_DPipe_fp32_112k_Anime_VAE_SDXL.safetensors" # SDXL vae from Anzhc DPip
     "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors" # Anime vae by qwen
+    "https://huggingface.co/Anzhc/Qwen2D-VAE/resolve/main/Qwen2D_VAE.safetensors" # Anzhc custom Anima vae
 )
 
 UPSCALE_MODELS=(
     "https://huggingface.co/Kim2091/2x-AnimeSharpV4/resolve/1a9339b5c308ab3990f6233be2c1169a75772878/2x-AnimeSharpV4_RCAN.safetensors"
-    "https://huggingface.co/Kim2091/UltraSharpV2/resolve/main/4x-UltraSharpV2.safetensors"
+#    "https://huggingface.co/Kim2091/UltraSharpV2/resolve/main/4x-UltraSharpV2.safetensors"
 )
 
 # [DISABLED] ollama가 qwen35 아키텍처를 지원하면 주석 해제
