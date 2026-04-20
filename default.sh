@@ -209,16 +209,53 @@ function provisioning_get_pip_packages() {
 }
 
 function provisioning_install_sageattention() {
-    # RTX 5090 등 Blackwell GPU에서 SageAttention FP8 지원을 위해 최신 버전 소스 빌드
     printf "Checking SageAttention installation...\n"
-    if python -c "from sageattention import sageattn_qk_int8_pv_fp8_cuda" 2>/dev/null; then
-        printf "SageAttention FP8 already available, skipping...\n"
-    else
-        printf "Installing SageAttention from source (--no-build-isolation for torch access)...\n"
-        pip uninstall sageattention -y 2>/dev/null || true
-        pip install --no-cache-dir --no-build-isolation git+https://github.com/thu-ml/SageAttention.git
-        printf "SageAttention installation complete.\n"
+
+    # 환경 진단
+    python -c "import torch; print(f'torch={torch.__version__}, cuda={torch.version.cuda}, cap={torch.cuda.get_device_capability()}')"
+
+    # SageAttention 2.2의 sm120 FP8 (sv_f8_accum_f16) 심볼 확인
+    if python -c "
+import sageattention
+syms = dir(sageattention)
+ok = any('sm120' in s or ('fp8' in s.lower() and 'sm89' not in s) for s in syms)
+assert ok, 'no sm120/fp8 kernels found'
+print('OK:', [s for s in syms if 'fp8' in s.lower() or 'sm120' in s])
+" 2>/dev/null; then
+        printf "SageAttention with sm120 kernels already available, skipping...\n"
+        return 0
     fi
+
+    printf "Removing any existing SageAttention...\n"
+    pip uninstall sageattention -y 2>/dev/null || true
+
+    # 1차: Kijai prebuilt wheel (Linux/cp312/cu128 base, sm120 포함)
+    local WHEEL_URL="https://huggingface.co/Kijai/PrecompiledWheels/resolve/main/sageattention-2.2.0-cp312-cp312-linux_x86_64.whl"
+    printf "Trying prebuilt wheel from Kijai/PrecompiledWheels...\n"
+    if pip install --no-cache-dir "$WHEEL_URL"; then
+        printf "Prebuilt wheel installed.\n"
+    else
+        # 2차: woct0rdho 포크 소스 빌드 fallback
+        printf "Prebuilt failed, falling back to source build (woct0rdho fork)...\n"
+        TORCH_CUDA_ARCH_LIST="12.0+PTX" \
+        FORCE_CUDA=1 \
+        MAX_JOBS=4 \
+        pip install --no-cache-dir --no-build-isolation -v \
+            "git+https://github.com/woct0rdho/SageAttention.git"
+    fi
+
+    # 검증: 실제 GPU에서 sm120 경로 호출 통과 확인
+    python -c "
+import torch, sageattention
+print('version:', getattr(sageattention, '__version__', 'unknown'))
+print('symbols:', [s for s in dir(sageattention) if 'fp8' in s.lower() or 'sm120' in s])
+q = torch.randn(2, 8, 128, 64, dtype=torch.float16, device='cuda')
+k = torch.randn(2, 8, 128, 64, dtype=torch.float16, device='cuda')
+v = torch.randn(2, 8, 128, 64, dtype=torch.float16, device='cuda')
+out = sageattention.sageattn(q, k, v)
+print('smoke test OK, out.shape =', tuple(out.shape))
+"
+    printf "SageAttention installation complete.\n"
 }
 
 function provisioning_get_nodes() {
