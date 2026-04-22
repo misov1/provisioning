@@ -37,6 +37,7 @@ NODES=(
     "https://github.com/yolain/ComfyUI-Easy-Use"
     "https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet"
     "https://github.com/stavsap/comfyui-ollama"
+    "https://github.com/namemechan/ComfyUI-DCW"
     "https://github.com/jtydhr88/ComfyUI-Workflow-Encrypt"
     "https://github.com/NyaamZ/efficiency-nodes-ED"
     # Smooth Mix Wan 2.2 node
@@ -102,19 +103,19 @@ BBOX=(
 
 LORA_MODELS=(
 # SDXL Lora
-    "https://huggingface.co/misov/provisioning/resolve/main/Ebora_Style_Lora_Epoch10.safetensors" # ebora style lora
-    "https://huggingface.co/misov/provisioning/resolve/main/qiandaiyiyu_style.safetensors" # qiandaiyiyu style lora
+#    "https://huggingface.co/misov/provisioning/resolve/main/Ebora_Style_Lora_Epoch10.safetensors" # ebora style lora
+#    "https://huggingface.co/misov/provisioning/resolve/main/qiandaiyiyu_style.safetensors" # qiandaiyiyu style lora
     "https://huggingface.co/misov/provisioning/resolve/main/BlueArchive-000008.safetensors" # BlueArchive Cutscene style
-    "https://huggingface.co/misov/provisioning/resolve/main/anime3dv2-000009.safetensors" # 3D Virtual Anime style
+#    "https://huggingface.co/misov/provisioning/resolve/main/anime3dv2-000009.safetensors" # 3D Virtual Anime style
     "https://huggingface.co/misov/provisioning/resolve/main/nyaliaXL_NBVP1_lokr_V6311PZ.safetensors" # Nyalia style lora based noobAI
 
 # Anime Lora
+    "https://huggingface.co/misov/provisioning/resolve/main/anima-highres-aesthetic-boost.safetensors" # anima highres aesthetic boost
     "https://huggingface.co/misov/provisioning/resolve/main/mixed_styles_anima_preview2_v3.safetensors" # Ai style dump
-    "https://huggingface.co/misov/provisioning/resolve/main/anima_preview2_nineng8_1536_512_2026_03_14-000001.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/QUANTUMAIQUARTET_Anima-preview_adapter_model_epoch12.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/anima-highres-aesthetic-boost.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/toridamonostyle.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/BlueArcStyle.safetensors"
+#    "https://huggingface.co/misov/provisioning/resolve/main/anima_preview2_nineng8_1536_512_2026_03_14-000001.safetensors" # nineng8
+#    "https://huggingface.co/misov/provisioning/resolve/main/QUANTUMAIQUARTET_Anima-preview_adapter_model_epoch12.safetensors" # quantumaiquartet
+    "https://huggingface.co/misov/provisioning/resolve/main/toridamonostyle.safetensors" # @toridamonostyle
+    "https://huggingface.co/misov/provisioning/resolve/main/BlueArcStyle.safetensors" # BA Style
 
 # Wan2.2 Lora
 #    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
@@ -124,7 +125,7 @@ LORA_MODELS=(
 VAE_MODELS=(
 #    "https://huggingface.co/DeepBeepMeep/Wan2.1/resolve/4da0bbfdad01e159633083e98be7f93d8b8c9562/Wan2.1_VAE_bf16.safetensors" # wan vae
     "https://huggingface.co/misov/vast_used/resolve/main/MS_DPipe_fp32_112k_Anime_VAE_SDXL.safetensors" # SDXL vae from Anzhc DPip
-    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors" # Anime vae by qwen
+    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors" # Anima vae by qwen
     "https://huggingface.co/Anzhc/Qwen2D-VAE/resolve/main/Qwen2D_VAE.safetensors" # Anzhc custom Anima vae
 )
 
