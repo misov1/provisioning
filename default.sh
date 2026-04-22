@@ -189,12 +189,11 @@ function provisioning_start() {
     provisioning_get_files \
         "${COMFYUI_DIR}/models/ultralytics/bbox" \
         "${BBOX[@]}"
-    # [DISABLED] ollama가 qwen35 아키텍처를 지원하면 주석 해제
-    # provisioning_get_files \
-    #     "${COMFYUI_DIR}/models/LLM" \
-    #     "${LLM_MODELS[@]}"
+#    provisioning_get_files \
+#        "${COMFYUI_DIR}/models/LLM" \
+#        "${LLM_MODELS[@]}"
 #    provisioning_setup_ollama
-    provisioning_install_sageattention
+#    provisioning_install_sageattention
     provisioning_print_end
 }
 
