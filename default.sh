@@ -114,7 +114,8 @@ LORA_MODELS=(
     "https://huggingface.co/misov/provisioning/resolve/main/nyaliaXL_NBVP1_lokr_V6311PZ.safetensors" # Nyalia style lora based noobAI
 
 # Anime Lora
-    "https://huggingface.co/misov/provisioning/resolve/main/anima-highres-aesthetic-boost.safetensors" # anima highres aesthetic boost
+    "https://huggingface.co/misov/provisioning/resolve/main/anima-highres-aesthetic-boost.safetensors" # Anima highres aesthetic boost
+    "https://huggingface.co/misov/provisioning/resolve/main/anima-rl-v0.1.safetensors" #Anima RL lora
     "https://huggingface.co/misov/provisioning/resolve/main/mixed_styles_anima_preview2_v3.safetensors" # Ai style dump
 #    "https://huggingface.co/misov/provisioning/resolve/main/anima_preview2_nineng8_1536_512_2026_03_14-000001.safetensors" # nineng8
 #    "https://huggingface.co/misov/provisioning/resolve/main/QUANTUMAIQUARTET_Anima-preview_adapter_model_epoch12.safetensors" # quantumaiquartet
