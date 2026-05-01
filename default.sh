@@ -38,7 +38,6 @@ NODES=(
     "https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet"
     "https://github.com/stavsap/comfyui-ollama"
     "https://github.com/namemechan/ComfyUI-DCW"
-    "https://github.com/JunnnnyWon/comfyui-modal"
     "https://github.com/Anzhc/anzhc-qwen2d-comfyui"
     "https://github.com/jtydhr88/ComfyUI-Workflow-Encrypt"
     "https://github.com/NyaamZ/efficiency-nodes-ED"
