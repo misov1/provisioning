@@ -38,6 +38,7 @@ NODES=(
     "https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet"
     "https://github.com/stavsap/comfyui-ollama"
     "https://github.com/namemechan/ComfyUI-DCW"
+    "https://github.com/JunnnnyWon/comfyui-modal"
     "https://github.com/Anzhc/anzhc-qwen2d-comfyui"
     "https://github.com/jtydhr88/ComfyUI-Workflow-Encrypt"
     "https://github.com/NyaamZ/efficiency-nodes-ED"
@@ -74,6 +75,9 @@ CHECKPOINT_MODELS=(
 # Anima model
     "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview3-base.safetensors" # Anima Preview
 #    "https://huggingface.co/misov/provisioning/resolve/main/animayume_v03.safetensors" # AnimaYume
+
+# SAM3 for ComfyUI
+    "https://huggingface.co/misov/provisioning/resolve/main/sam3.1_multiplex_fp16.safetensors"
 )
 
 UNET_MODELS=(
