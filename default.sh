@@ -72,11 +72,11 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/baqu2213/PoemForSmallFThings/resolve/main/NAI-XL_vpred1.0_2dac_colorized_style2.safetensors" # NoobAI-XL custom merge model+ color 2D Str
 
 # Anima model
-    "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-preview3-base.safetensors" # Anima Preview
+    "https://huggingface.co/misov/provisioning/resolve/main/ckpt/anima-base-v1.0.safetensors" # Anima Preview
 #    "https://huggingface.co/misov/provisioning/resolve/main/animayume_v03.safetensors" # AnimaYume
 
 # SAM3 for ComfyUI
-    "https://huggingface.co/misov/provisioning/resolve/main/sam3.1_multiplex_fp16.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/sam/sam3.1_multiplex_fp16.safetensors"
 )
 
 UNET_MODELS=(
@@ -109,18 +109,21 @@ LORA_MODELS=(
 # SDXL Lora
 #    "https://huggingface.co/misov/provisioning/resolve/main/Ebora_Style_Lora_Epoch10.safetensors" # ebora style lora
 #    "https://huggingface.co/misov/provisioning/resolve/main/qiandaiyiyu_style.safetensors" # qiandaiyiyu style lora
-    "https://huggingface.co/misov/provisioning/resolve/main/BlueArchive-000008.safetensors" # BlueArchive Cutscene style
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/BlueArchive-000008.safetensors" # BlueArchive Cutscene style
 #    "https://huggingface.co/misov/provisioning/resolve/main/anime3dv2-000009.safetensors" # 3D Virtual Anime style
-    "https://huggingface.co/misov/provisioning/resolve/main/nyaliaXL_NBVP1_lokr_V6311PZ.safetensors" # Nyalia style lora based noobAI
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/nyaliaXL_NBVP1_lokr_V6311PZ.safetensors" # Nyalia style lora based noobAI
 
 # Anime Lora
-    "https://huggingface.co/misov/provisioning/resolve/main/anima-highres-aesthetic-boost.safetensors" # Anima highres aesthetic boost
-    "https://huggingface.co/misov/provisioning/resolve/main/anima-rl-v0.1.safetensors" #Anima RL lora
-    "https://huggingface.co/misov/provisioning/resolve/main/mixed_styles_anima_preview2_v3.safetensors" # Ai style dump
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima-highres-aesthetic-boost.safetensors" # Anima highres aesthetic boost
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima-rl-v0.1.safetensors" #Anima RL lora
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/mixed_styles_anima_preview2_v3.safetensors" # Ai style dump
 #    "https://huggingface.co/misov/provisioning/resolve/main/anima_preview2_nineng8_1536_512_2026_03_14-000001.safetensors" # nineng8
 #    "https://huggingface.co/misov/provisioning/resolve/main/QUANTUMAIQUARTET_Anima-preview_adapter_model_epoch12.safetensors" # quantumaiquartet
-    "https://huggingface.co/misov/provisioning/resolve/main/toridamonostyle.safetensors" # @toridamonostyle
-    "https://huggingface.co/misov/provisioning/resolve/main/BlueArcStyle.safetensors" # BA Style
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/toridamonostyle.safetensors" # @toridamonostyle
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/BlueArcStyle.safetensors" # BA Style
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/hizake_mozu_style.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima_mi1k_v1.2.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima_4nmi_v2.0.safetensors"
 
 # Wan2.2 Lora
 #    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
@@ -129,7 +132,7 @@ LORA_MODELS=(
 
 VAE_MODELS=(
 #    "https://huggingface.co/DeepBeepMeep/Wan2.1/resolve/4da0bbfdad01e159633083e98be7f93d8b8c9562/Wan2.1_VAE_bf16.safetensors" # wan vae
-    "https://huggingface.co/misov/vast_used/resolve/main/MS_DPipe_fp32_112k_Anime_VAE_SDXL.safetensors" # SDXL vae from Anzhc DPip
+    "https://huggingface.co/misov/provisioning/resolve/main/vae/MS_DPipe_fp32_112k_Anime_VAE_SDXL.safetensors" # SDXL vae from Anzhc DPip
     "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors" # Anima vae by qwen
     "https://huggingface.co/Anzhc/Qwen2D-VAE/resolve/main/Qwen2D_VAE.safetensors" # Anzhc custom Anima vae
 )
