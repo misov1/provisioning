@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 set -u
 
-log() {
-  echo "[runpod.sh] $(date -Is) $*"
-}
-
-log "patch start"
+echo "[runpod.sh] patch start"
 
 cat >/etc/portal.yaml <<'YAML'
 applications:
@@ -42,27 +38,16 @@ applications:
 YAML
 
 cat >/etc/Caddyfile <<'CADDY'
-:1111 {
-  reverse_proxy 127.0.0.1:11111
-}
-:8188 {
-  reverse_proxy 127.0.0.1:18188
-}
-:8288 {
-  reverse_proxy 127.0.0.1:18288
-}
-:8080 {
-  reverse_proxy 127.0.0.1:18080
-}
-:8384 {
-  reverse_proxy 127.0.0.1:18384
-}
+:1111 { reverse_proxy 127.0.0.1:11111 }
+:8188 { reverse_proxy 127.0.0.1:18188 }
+:8288 { reverse_proxy 127.0.0.1:18288 }
+:8080 { reverse_proxy 127.0.0.1:18080 }
+:8384 { reverse_proxy 127.0.0.1:18384 }
 CADDY
 
 if [ -f /opt/supervisor-scripts/syncthing.sh ]; then
   sed -i 's/^GUI_ADDR=.*/GUI_ADDR="127.0.0.1:18384"/' /opt/supervisor-scripts/syncthing.sh
-  grep -q '^GUI_LISTEN_ADDR=' /opt/supervisor-scripts/syncthing.sh || \
-    sed -i '/^GUI_ADDR=/a GUI_LISTEN_ADDR="0.0.0.0:18384"' /opt/supervisor-scripts/syncthing.sh
+  grep -q '^GUI_LISTEN_ADDR=' /opt/supervisor-scripts/syncthing.sh || sed -i '/^GUI_ADDR=/a GUI_LISTEN_ADDR="0.0.0.0:18384"' /opt/supervisor-scripts/syncthing.sh
   sed -i 's/--gui-address="${GUI_ADDR}"/--gui-address="${GUI_LISTEN_ADDR}"/' /opt/supervisor-scripts/syncthing.sh
 fi
 
@@ -75,10 +60,10 @@ supervisorctl stop syncthing || true
 pkill -f '/opt/syncthing/syncthing serve' || true
 supervisorctl start syncthing || true
 
-log "patch done"
-log "default.sh model download start"
+echo "[runpod.sh] patch done"
+echo "[runpod.sh] default.sh start"
 
 curl -fsSL https://raw.githubusercontent.com/misov1/provisioning/refs/heads/main/default.sh -o /tmp/default.sh
 bash /tmp/default.sh
 
-log "default.sh done"
+echo "[runpod.sh] default.sh done"
