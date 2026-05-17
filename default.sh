@@ -72,7 +72,7 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/baqu2213/PoemForSmallFThings/resolve/main/NAI-XL_vpred1.0_2dac_colorized_style2.safetensors" # NoobAI-XL custom merge model+ color 2D Str
 
 # Anima model
-    "https://huggingface.co/misov/provisioning/resolve/main/ckpt/anima-base-v1.0.safetensors" # Anima Preview
+    "https://huggingface.co/misov/provisioning/resolve/main/ckpt/anima-base-v1.0.safetensors" # Anima 1.0
 #    "https://huggingface.co/misov/provisioning/resolve/main/animayume_v03.safetensors" # AnimaYume
 
 # SAM3 for ComfyUI
@@ -116,14 +116,16 @@ LORA_MODELS=(
 # Anime Lora
     "https://huggingface.co/misov/provisioning/resolve/main/loras/anima-highres-aesthetic-boost.safetensors" # Anima highres aesthetic boost
     "https://huggingface.co/misov/provisioning/resolve/main/loras/anima-rl-v0.1.safetensors" #Anima RL lora
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/mixed_styles_anima_preview2_v3.safetensors" # Ai style dump
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/mixed_styles_anima_preview3_v4.safetensors" # Ai style dump
 #    "https://huggingface.co/misov/provisioning/resolve/main/anima_preview2_nineng8_1536_512_2026_03_14-000001.safetensors" # nineng8
 #    "https://huggingface.co/misov/provisioning/resolve/main/QUANTUMAIQUARTET_Anima-preview_adapter_model_epoch12.safetensors" # quantumaiquartet
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/toridamonostyle.safetensors" # @toridamonostyle
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/BlueArcStyle.safetensors" # BA Style
+#    "https://huggingface.co/misov/provisioning/resolve/main/loras/toridamonostyle.safetensors" # @toridamonostyle
+#    "https://huggingface.co/misov/provisioning/resolve/main/loras/BlueArcStyle.safetensors" # BA Style
     "https://huggingface.co/misov/provisioning/resolve/main/loras/hizake_mozu_style.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima_mi1k_v1.2.safetensors"
     "https://huggingface.co/misov/provisioning/resolve/main/loras/anima_4nmi_v2.0.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/tianl.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/NikkeB1.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/BlueArchiveStyleB1.safetensors"
 
 # Wan2.2 Lora
 #    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
