@@ -39,6 +39,9 @@ NODES=(
     "https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet"
 #    "https://github.com/stavsap/comfyui-ollama"
     "https://github.com/namemechan/ComfyUI-DCW"
+    "https://github.com/misov1/ComfyUI-Anima-Block-Compile"
+    "https://github.com/An1X3R/Anima-Artist-Mixer"
+    "https://github.com/misov1/ComfyUI-font"
     "https://github.com/Anzhc/anzhc-qwen2d-comfyui"
 #    "https://github.com/jtydhr88/ComfyUI-Workflow-Encrypt"
 #    "https://github.com/NyaamZ/efficiency-nodes-ED"
@@ -126,6 +129,7 @@ LORA_MODELS=(
     "https://huggingface.co/misov/provisioning/resolve/main/loras/NikkeB1.safetensors"
     "https://huggingface.co/misov/provisioning/resolve/main/loras/BlueArchiveStyleB1.safetensors"
     "https://huggingface.co/misov/provisioning/resolve/main/loras/Berserker00R.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/realskin_b1v1.safetensors"
 
 # Wan2.2 Lora
 #    "https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0_pro.safetensors"
@@ -134,7 +138,7 @@ LORA_MODELS=(
 
 VAE_MODELS=(
 #    "https://huggingface.co/DeepBeepMeep/Wan2.1/resolve/4da0bbfdad01e159633083e98be7f93d8b8c9562/Wan2.1_VAE_bf16.safetensors" # wan vae
-    "https://huggingface.co/misov/provisioning/resolve/main/vae/MS_DPipe_fp32_112k_Anime_VAE_SDXL.safetensors" # SDXL vae from Anzhc DPip
+#    "https://huggingface.co/misov/provisioning/resolve/main/vae/MS_DPipe_fp32_112k_Anime_VAE_SDXL.safetensors" # SDXL vae from Anzhc DPip
     "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors" # Anima vae by qwen
     "https://huggingface.co/Anzhc/Qwen2D-VAE/resolve/main/Qwen2D_VAE.safetensors" # Anzhc custom Anima vae
 )
