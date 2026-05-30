@@ -42,6 +42,7 @@ NODES=(
     "https://github.com/misov1/ComfyUI-Anima-Block-Compile"
     "https://github.com/An1X3R/Anima-Artist-Mixer"
     "https://github.com/misov1/ComfyUI-font"
+    "https://github.com/bedovyy/ComfyUI-PreviewMonitor"
     "https://github.com/Anzhc/anzhc-qwen2d-comfyui"
 #    "https://github.com/jtydhr88/ComfyUI-Workflow-Encrypt"
 #    "https://github.com/NyaamZ/efficiency-nodes-ED"
