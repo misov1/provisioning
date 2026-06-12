@@ -102,6 +102,7 @@ TEXT_ENCODERS=(
 
 CLIP_VISION=(
 #    "https://huggingface.co/calcuis/wan-gguf/resolve/f52f5a1f0ba441d50277fb7cdd7c1b36611837f9/clip_vision_h.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/vae/Anzhc_Noobai11_CLIP_L_Anime.safetensors"
 )
 
 SAMS=(
