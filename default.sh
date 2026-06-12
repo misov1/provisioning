@@ -99,11 +99,11 @@ UNET_MODELS=(
 TEXT_ENCODERS=(
 #    "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors" # Wan 2.2 text encoder
     "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors" # Anima text encoder by qwen
+    "https://huggingface.co/misov/provisioning/resolve/main/vae/Anzhc_Noobai11_CLIP_L_Anime.safetensors"
 )
 
 CLIP_VISION=(
 #    "https://huggingface.co/calcuis/wan-gguf/resolve/f52f5a1f0ba441d50277fb7cdd7c1b36611837f9/clip_vision_h.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/vae/Anzhc_Noobai11_CLIP_L_Anime.safetensors"
 )
 
 SAMS=(
