@@ -23,7 +23,7 @@ NODES=(
 #    "https://github.com/Koishi-Star/Euler-Smea-Dyn-Sampler"
     "https://github.com/ruwwww/ComfyUI-Spectrum-sdxl"
     "https://github.com/jags111/efficiency-nodes-comfyui"
-    "https://github.com/LEv145/images-grid-comfy-plugin"
+#    "https://github.com/LEv145/images-grid-comfy-plugin"
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
     "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
     "https://github.com/JPS-GER/ComfyUI_JPS-Nodes"
@@ -44,8 +44,12 @@ NODES=(
     "https://github.com/misov1/ComfyUI-font"
     "https://github.com/bedovyy/ComfyUI-PreviewMonitor"
     "https://github.com/Anzhc/anzhc-qwen2d-comfyui"
+    "https://github.com/Mirumo0u0/ComfyUI-Cosmos-Reference"
+    "https://github.com/sorryhyun/ComfyUI-Anima-DAVE"
+    "https://github.com/sorryhyun/ComfyUI-Anima-PiD"
 #    "https://github.com/jtydhr88/ComfyUI-Workflow-Encrypt"
 #    "https://github.com/NyaamZ/efficiency-nodes-ED"
+
     # Smooth Mix Wan 2.2 node
 #    "https://github.com/melMass/comfy_mtb"
 #    "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
@@ -83,7 +87,7 @@ CHECKPOINT_MODELS=(
 UNET_MODELS=(
 # Anima model
     "https://huggingface.co/misov/provisioning/resolve/main/ckpt/anima-base-v1.0.safetensors" # Anima 1.0
-    "https://huggingface.co/misov/provisioning/resolve/main/ckpt/anima_adamw_tianl2_1536-step00010000.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/ckpt/miaomiaoRealskin_anima10.safetensors"
 # wan 2.2 models
 #    "https://civitai.com/api/download/models/2555640?type=Model&format=SafeTensor&size=full&fp=fp8" #dasiwa v9 High
 #    "https://civitai.com/api/download/models/2555652?type=Model&format=SafeTensor&size=full&fp=fp8" #dasiwa v9 Low
@@ -118,18 +122,20 @@ LORA_MODELS=(
 
 # Anime Lora
     "https://huggingface.co/misov/provisioning/resolve/main/loras/anima-highres-aesthetic-boost.safetensors" # Anima highres aesthetic boost
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima-rl-v0.1.safetensors" #Anima RL lora
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/mixed_styles_anima-base1_v5.safetensors" # Ai style dump
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima_base_slider_step800.safetensors"
+    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima_context_detailer_base10.safetensors"
+#    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima-rl-v0.1.safetensors" #Anima RL lora
+#    "https://huggingface.co/misov/provisioning/resolve/main/loras/mixed_styles_anima-base1_v5.safetensors" # Ai style dump
 #    "https://huggingface.co/misov/provisioning/resolve/main/anima_preview2_nineng8_1536_512_2026_03_14-000001.safetensors" # nineng8
 #    "https://huggingface.co/misov/provisioning/resolve/main/QUANTUMAIQUARTET_Anima-preview_adapter_model_epoch12.safetensors" # quantumaiquartet
 #    "https://huggingface.co/misov/provisioning/resolve/main/loras/toridamonostyle.safetensors" # @toridamonostyle
 #    "https://huggingface.co/misov/provisioning/resolve/main/loras/BlueArcStyle.safetensors" # BA Style
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/hizake_mozu_style.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima_4nmi_v2.0.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/tianl.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/NikkeB1.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/BlueArchiveStyleB1.safetensors"
-    "https://huggingface.co/misov/provisioning/resolve/main/loras/Berserker00R.safetensors"
+#    "https://huggingface.co/misov/provisioning/resolve/main/loras/hizake_mozu_style.safetensors"
+#    "https://huggingface.co/misov/provisioning/resolve/main/loras/anima_4nmi_v2.0.safetensors"
+#    "https://huggingface.co/misov/provisioning/resolve/main/loras/tianl.safetensors"
+#    "https://huggingface.co/misov/provisioning/resolve/main/loras/NikkeB1.safetensors"
+#    "https://huggingface.co/misov/provisioning/resolve/main/loras/BlueArchiveStyleB1.safetensors"
+#    "https://huggingface.co/misov/provisioning/resolve/main/loras/Berserker00R.safetensors"
     "https://huggingface.co/misov/provisioning/resolve/main/loras/realskin_b1v1.safetensors"
 
 # Wan2.2 Lora
