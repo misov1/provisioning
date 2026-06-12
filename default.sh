@@ -44,6 +44,7 @@ NODES=(
     "https://github.com/misov1/ComfyUI-font"
     "https://github.com/bedovyy/ComfyUI-PreviewMonitor"
     "https://github.com/Anzhc/anzhc-qwen2d-comfyui"
+    "https://github.com/Anzhc/Anima-Mod-Guidance-ComfyUI-Node"
     "https://github.com/Mirumo0u0/ComfyUI-Cosmos-Reference"
     "https://github.com/sorryhyun/ComfyUI-Anima-DAVE"
     "https://github.com/sorryhyun/ComfyUI-Anima-PiD"
