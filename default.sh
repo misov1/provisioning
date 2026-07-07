@@ -88,7 +88,7 @@ CHECKPOINT_MODELS=(
 UNET_MODELS=(
 # Anima model
     "https://huggingface.co/misov/provisioning/resolve/main/ckpt/anima-base-v1.0.safetensors" # Anima 1.0
-    "https://huggingface.co/misov/provisioning/resolve/main/ckpt/miaomiaoRealskin_anima10.safetensors"
+#    "https://huggingface.co/misov/provisioning/resolve/main/ckpt/miaomiaoRealskin_anima10.safetensors"
 # wan 2.2 models
 #    "https://civitai.com/api/download/models/2555640?type=Model&format=SafeTensor&size=full&fp=fp8" #dasiwa v9 High
 #    "https://civitai.com/api/download/models/2555652?type=Model&format=SafeTensor&size=full&fp=fp8" #dasiwa v9 Low
